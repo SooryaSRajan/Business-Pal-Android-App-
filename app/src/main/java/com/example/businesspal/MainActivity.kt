@@ -1,5 +1,6 @@
 package com.example.businesspal
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -33,18 +34,19 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-        viewModel.movieList.observe(this, Observer {
+        viewModel.movieList.observe(this, {
             Log.d(TAG, "onCreate: $it")
             adapter.setBusinessList(it)
         })
 
-        viewModel.errorMessage.observe(this, Observer {
+        viewModel.errorMessage.observe(this, {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         })
         viewModel.getAllMovies(this@MainActivity)
 
         val connectivityManager =
             getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
         connectivityManager.registerDefaultNetworkCallback(object :
             ConnectivityManager.NetworkCallback() {
             override fun onAvailable(network: Network) {

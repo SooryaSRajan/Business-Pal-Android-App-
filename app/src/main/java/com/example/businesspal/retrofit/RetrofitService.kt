@@ -5,11 +5,17 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Body
+
 
 interface RetrofitService {
 
     @GET("read")
     fun getAllData(): Call<List<BusinessDataModel>>
+
+    @POST("write")
+    fun writeData(@Body dataModal: BusinessDataModel?): Call<BusinessDataModel?>?
 
     companion object {
 
