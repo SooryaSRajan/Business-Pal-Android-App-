@@ -12,7 +12,8 @@ This project proposes a simple full stack app "Business Pal" to help small busin
   
 <b> Functionality & Concepts used : </b>
 
-- The app uses a simple yet intuitive easy to use interface, using Android and Material components for the User Interface. The components used in the app is attached below: 
+The app uses a simple yet intuitive easy to use interface, using Android and Material components for the User Interface. The components used in the app is attached below: 
+
 - Constraint Layout : All of the available layouts are built fully responsive using constraint layout. 
 -  Scroll View: Some of the layouts are also enclosed using ScrollView to allow pages which are in the risk of overflowing in smaller displays or landscape mode scroll.
 - RecyclerView : To list all the current available business vendors in a list efficiently, recycler view is used.
