@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         Firebase.messaging.subscribeToTopic("business")
             .addOnCompleteListener {
-                Toast.makeText(this, "GOT", Toast.LENGTH_SHORT).show()
             }
 
 

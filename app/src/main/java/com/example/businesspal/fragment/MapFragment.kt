@@ -21,7 +21,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 
 
-class MapFragment : Fragment(), OnMapReadyCallback {
+class MapFragment() : Fragment(), OnMapReadyCallback {
     lateinit var data: BusinessDataModel
     lateinit var navController: NavController
 

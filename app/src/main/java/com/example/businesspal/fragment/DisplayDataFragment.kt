@@ -18,7 +18,7 @@ import android.net.Uri
 import android.widget.Toast
 
 
-class DisplayDataFragment : Fragment() {
+class DisplayDataFragment() : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

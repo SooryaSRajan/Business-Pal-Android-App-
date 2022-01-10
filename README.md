@@ -4,28 +4,28 @@ Business Vendor App
 
 <b> Problem Statement: </b>
 
-Over a great period, many issues have been faced by our students traveling by college busses. One of the challenges they face every day is to know the location of the bus.
-Technology plays a vital role in day-to-day life activities which in turn made great changes in many work fields and out of them Mobile Application is one of the major developments. Mobile Application can be used effectively for this job as they are widely used and are known for easy access.
-
 Small scale business vendors always struggle to get their business up as they are dominated by bigger and wholesale businesses and people are usually unaware of existence of such small scale business vendors. Mobile applications can be used to advertise and publish information about business vendors or new business owners as mobile apps are widely used and is best suited.
 
 <b> Proposed Solution : </b>
 
-This project proposes a “Bus Tracking System” to keep track of the college bus and provides all the information about GNITS Bus Services. Its features include location of busses and prediction of bus delays. It accepts student data allowing them to register to the application. This application uses GPS tracking techniques by acquiring the geo-location from the driver's mobile device and mapping it to the database. Google API’s are used for accuracy in finding the location of the busses. Currently the app works for GNITS institute only. The project's scope is to extend it for other institutions to transport services in future in collaboration.
+This project proposes a simple full stack app "Business Pal" to help small business vendors advertise and promote their business. The app allows any user to add information about their business, an email to let anyone contact them and the  app also allows them to attach their business location through GPS to people can go visit the province. The app also allows users to open the location in an inbuilt Map to quickly view the location, and also allows them to open it in google maps for extended features. The project's scope is to add more security, allow modifications in the future, add filter for business types and add option to view local business.
 
 <img width="559" alt="sampleimages" src="https://user-images.githubusercontent.com/18289261/142846646-a6858641-ad88-43aa-b8bb-b690fd7126f1.png">
               
 <b> Functionality & Concepts used : </b>
 
-- The App has a very simple and interactive interface which helps the students select their route bus and track its location. Following are few android concepts used to achieve the functionalities in app : 
-- Constraint Layout : Most of the activities in the app uses a flexible constraint layout, which is easy to handle for different screen sizes.
-- Simple & Easy Views Design : Use of familiar audience EditText with hints and interactive buttons made it easier for students to register or sign in without providing any detailed instructions pages. Apps also uses App Navigation to switch between different screens.
-- RecyclerView : To present the list of different route busses we used the efficient recyclerview.
-Google Maps API : We are also using the Google Maps API free version for  below 1000 users. In future if the user base increases we will go for the upgraded plan too.
-- LiveData & Room Database : We are also using LiveData to update & observe any changes in the Bus driver's locations received from their mobile at real time and update it to local databases using Room. Coordinates are then updated in the bus route screen and students can track their route bus locations.
+- The app uses a simple yet intuitive easy to use interface, using Android and Material components for the User Interface. The components used in the app is attached below: 
+- Constraint Layout : All of the available layouts are built fully responsive using constraint layout. 
+-  Scroll View: Some of the layouts are also enclosed using ScrollView to allow pages which are in the risk of overflowing in smaller displays or landscape mode scroll.
+- RecyclerView : To list all the current available business vendors in a list efficiently, recycler view is used.
+- Google Maps API : Google Maps API is used to display the location of the business vendors quickly within the app.
+- LiveData & Room Database : Live Data and View model is used to observe and update the recycler view whenever a network change is detected or the user clicks on the reload button. Room Database is used in the View Model to store data whenever requested and retrieve the data to display in the recycler view whenever network is not available to allow the user to have a seemless experience regardless.
+- Retrofit : Retrofit is used to make GET and POST requests to the online server which manages all the Business vendors data to get data to display in the app.
 
 <b> Application Link & Future Scope : </b>
 
-The app is currently in the Alpha testing phase with GNITS institute with a limited no. of users, You can access the app : [YOUR APP LINK HERE](either Github link or Google Play store link of published app or .apk file).
+Backend Database: https://github.com/SooryaSRajan/Business-Pal-NodeJS-Backend (Built using Node JS, Express and MongoDB)
 
-Once the app is fully tested and functional in GNITS institute, we plan to talk to neighboring colleges also to propose this app idea and collaborate with them on this transportation service. We aim that by next year most of the colleges in our district will use Bus tracking apps to check out their bus routes and be informed all the time. Also we are planning to include emergency SOS features for students traveling in busses if they are stuck somewhere. 
+Screenshots: https://drive.google.com/drive/folders/1DyAoe0IbYWcoLKn9SGQLZhxf1wOeMZuo?usp=sharing
+
+
