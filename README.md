@@ -17,7 +17,7 @@ The app uses a simple yet intuitive easy to use interface, using Android and Mat
 - Constraint Layout : All of the available layouts are built fully responsive using constraint layout. 
 -  Scroll View: Some of the layouts are also enclosed using ScrollView to allow pages which are in the risk of overflowing in smaller displays or landscape mode scroll.
 - RecyclerView : To list all the current available business vendors in a list efficiently, recycler view is used.
--Navigation Components : Navigation components is used in the app to swiftly switch between the business information and the map page without having to start a separate a activity each time.
+- Navigation Components : Navigation components is used in the app to swiftly switch between the business information and the map page without having to start a separate a activity each time.
 - Google Maps API : Google Maps API is used to display the location of the business vendors quickly within the app.
 - LiveData & Room Database : Live Data and View model is used to observe and update the recycler view whenever a network change is detected or the user clicks on the reload button. Room Database is used in the View Model to store data whenever requested and retrieve the data to display in the recycler view whenever network is not available to allow the user to have a seemless experience regardless.
 - Retrofit : Retrofit is used to make GET and POST requests to the online server which manages all the Business vendors data to get data to display in the app.
