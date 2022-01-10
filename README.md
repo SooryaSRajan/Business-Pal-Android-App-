@@ -21,6 +21,7 @@ This project proposes a simple full stack app "Business Pal" to help small busin
 - Google Maps API : Google Maps API is used to display the location of the business vendors quickly within the app.
 - LiveData & Room Database : Live Data and View model is used to observe and update the recycler view whenever a network change is detected or the user clicks on the reload button. Room Database is used in the View Model to store data whenever requested and retrieve the data to display in the recycler view whenever network is not available to allow the user to have a seemless experience regardless.
 - Retrofit : Retrofit is used to make GET and POST requests to the online server which manages all the Business vendors data to get data to display in the app.
+- Firebase Cloud Messaging : Firebase Cloud Messaging (FCM) is used to deliver notifications realtime to all available users and notify them about newly added Business in the app.
 
 <b> Application Link & Future Scope : </b>
 
