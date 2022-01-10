@@ -13,5 +13,6 @@ data class BusinessDataModel(
     @ColumnInfo(name = "business_description") var BusinessDescription: String,
     @ColumnInfo(name = "business_location_latitude") var BusinessLocationLatitude: Double,
     @ColumnInfo(name = "business_location_longitude") var BusinessLocationLongitude: Double,
-    @ColumnInfo(name = "created_time") var CreatedTime: String
+    @ColumnInfo(name = "created_time") var CreatedTime: String,
+    @ColumnInfo(name = "email_id") var EmailID: String
 ) : Serializable

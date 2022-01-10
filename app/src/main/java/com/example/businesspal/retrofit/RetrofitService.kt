@@ -8,6 +8,10 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Body
 
+/**
+ * Local debug server Address:
+ *http://192.168.29.126:8080/
+ */
 
 interface RetrofitService {
 
@@ -18,13 +22,12 @@ interface RetrofitService {
     fun writeData(@Body dataModal: BusinessDataModel?): Call<BusinessDataModel?>?
 
     companion object {
-
         var retrofitService: RetrofitService? = null
         fun getInstance(): RetrofitService {
 
             if (retrofitService == null) {
                 val retrofit = Retrofit.Builder()
-                    .baseUrl("http://192.168.29.126:8080/")
+                    .baseUrl("https://business-pal-api.herokuapp.com/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                 retrofitService = retrofit.create(RetrofitService::class.java)

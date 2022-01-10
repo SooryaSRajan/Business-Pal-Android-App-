@@ -14,13 +14,15 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.businesspal.model.BusinessDataModel
 import com.example.businesspal.retrofit.RetrofitService
-import com.example.businesspal.room.BusinessDatabaseBuilder
 import kotlinx.android.synthetic.main.activity_add_new_data.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
+import android.util.Patterns
+import java.util.regex.Pattern
+
 
 class AddNewDataActivity : AppCompatActivity() {
     var currentLocation: Location? = null
@@ -55,10 +57,10 @@ class AddNewDataActivity : AppCompatActivity() {
                         gpsLocationListener
                     )
                 } else {
-                    progressBar.visibility = View.GONE
+                    progressBar.visibility = View.INVISIBLE
                 }
             } else {
-                progressBar.visibility = View.GONE
+                progressBar.visibility = View.INVISIBLE
                 Toast.makeText(
                     this,
                     "Please allow GPS permissions and try again",
@@ -72,8 +74,13 @@ class AddNewDataActivity : AppCompatActivity() {
             val businessName = businessNameEditText.text.toString()
             val businessSloganData = businessSloganEditText.text.toString()
             val descriptionString = descriptionEditText.text.toString()
+            val emailId = businessOwnerEmailField.text.toString()
 
-            if (businessName.isNotEmpty() && businessSloganData.isNotEmpty() && descriptionString.isNotEmpty() && currentLocation != null) {
+            val pattern: Pattern = Patterns.EMAIL_ADDRESS
+            val isEmailValid = pattern.matcher(emailId).matches()
+
+
+            if (isEmailValid && businessName.isNotEmpty() && businessSloganData.isNotEmpty() && descriptionString.isNotEmpty() && emailId.isNotEmpty() && currentLocation != null) {
 
                 val modelData = BusinessDataModel(
                     BusinessName = businessName,
@@ -82,7 +89,8 @@ class AddNewDataActivity : AppCompatActivity() {
                     BusinessLocationLatitude = currentLocation!!.latitude,
                     BusinessLocationLongitude = currentLocation!!.longitude,
                     _id = "",
-                    CreatedTime = getDateTme()
+                    CreatedTime = getDateTme(),
+                    EmailID = emailId
 
                 );
 
@@ -121,6 +129,11 @@ class AddNewDataActivity : AppCompatActivity() {
             } else {
                 if (currentLocation == null) {
                     Toast.makeText(this, "Get Location", Toast.LENGTH_SHORT).show()
+                }
+                if (!isEmailValid) {
+                    businessOwnerEmailField.error = "Please enter a valid email ID"
+                } else {
+                    businessOwnerEmailField.error = null
                 }
                 when {
                     businessName.isEmpty() -> {
@@ -204,7 +217,7 @@ class AddNewDataActivity : AppCompatActivity() {
             currentLocation = locationData
             location.text =
                 "Latitude: ${locationData.latitude}, Longitude: ${locationData.longitude}"
-            progressBar.visibility = View.GONE
+            progressBar.visibility = View.INVISIBLE
 
         }
 

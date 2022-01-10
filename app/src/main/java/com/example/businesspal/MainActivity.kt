@@ -1,6 +1,5 @@
 package com.example.businesspal
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -11,12 +10,13 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.businesspal.adapter.MainAdapter
 import com.example.businesspal.model.MainViewModel
 import com.example.businesspal.model.MovieViewModelFactory
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.ktx.messaging
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,13 +29,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Firebase.messaging.subscribeToTopic("business")
+            .addOnCompleteListener {
+            }
+
+
         viewModel = ViewModelProvider(this, MovieViewModelFactory()).get(MainViewModel::class.java)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-        viewModel.movieList.observe(this, {
-            Log.d(TAG, "onCreate: $it")
+        viewModel.businesssList.observe(this, {
             adapter.setBusinessList(it)
         })
 
@@ -52,13 +56,11 @@ class MainActivity : AppCompatActivity() {
             override fun onAvailable(network: Network) {
                 Log.d(TAG, "onCreate: Connected")
                 viewModel.getAllMovies(this@MainActivity)
-                //take action when network connection is gained
             }
 
             override fun onLost(network: Network) {
                 viewModel.getAllMovies(this@MainActivity)
                 Log.d(TAG, "onCreate: Lost")
-                //take action when network connection is lost
             }
         })
 

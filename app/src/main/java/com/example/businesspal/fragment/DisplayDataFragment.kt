@@ -2,7 +2,6 @@ package com.example.businesspal.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -11,11 +10,16 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import com.example.businesspal.R
 import com.example.businesspal.model.BusinessDataModel
-import kotlinx.android.synthetic.main.activity_dissplay_data.*
 import kotlinx.android.synthetic.main.fragment_display_data.*
+import android.content.ActivityNotFoundException
+
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
+
 
 class DisplayDataFragment : Fragment() {
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -27,7 +31,6 @@ class DisplayDataFragment : Fragment() {
     ): View? {
 
 
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_display_data, container, false)
     }
 
@@ -39,14 +42,23 @@ class DisplayDataFragment : Fragment() {
             requireActivity().intent.getSerializableExtra("DATA") as BusinessDataModel
 
         businessName.text = data.BusinessName
-        Caption.text = data.BusinessCaption
+        Caption.text = "\"${data.BusinessCaption}\""
         description.text = data.BusinessDescription
+        emailId.text = data.EmailID
+
+        emailId.setOnClickListener {
+            try {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:${data.EmailID}"))
+                startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+                Toast.makeText(requireActivity(), "Cant Open Email", Toast.LENGTH_SHORT).show()
+            }
+        }
         val navHostFragment =
             requireActivity().supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         viewInMap.setOnClickListener {
-            Log.d("TAG", "onViewCreated: Clicked")
             navController.navigate(R.id.action_displayDataFragment_to_mapFragment2)
         }
     }

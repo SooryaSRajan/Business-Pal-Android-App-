@@ -10,12 +10,11 @@ import com.example.businesspal.room.BusinessDatabaseBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
 
-class MainViewModel() : ViewModel() {
+class MainViewModel : ViewModel() {
 
     val TAG = "View Model Error"
-    val movieList = MutableLiveData<List<BusinessDataModel>>()
+    val businesssList = MutableLiveData<List<BusinessDataModel>>()
     val errorMessage = MutableLiveData<String>()
 
 
@@ -30,7 +29,7 @@ class MainViewModel() : ViewModel() {
             ) {
 
 
-                movieList.postValue(response.body()?.reversed())
+                businesssList.postValue(response.body()?.reversed())
                 Thread {
                     val db = BusinessDatabaseBuilder.getInstance(context = context)
                     db?.userDao()?.deleteAll()
@@ -44,12 +43,8 @@ class MainViewModel() : ViewModel() {
 
                 Thread {
                     val db = BusinessDatabaseBuilder.getInstance(context = context)
-                    Log.d(
-                        TAG, "onDataRetrieve: ${
-                            db?.userDao()?.getAll()
-                        }"
-                    )
-                    movieList.postValue(
+
+                    businesssList.postValue(
                         db?.userDao()?.getAll()
                     )
                 }.start()

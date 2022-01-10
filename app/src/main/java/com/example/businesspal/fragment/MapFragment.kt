@@ -65,7 +65,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         p0.addMarker(
             MarkerOptions()
                 .position(coordinate)
-                .title("Marker in Sydney")
+                .title(data.BusinessName)
         )
         p0.moveCamera(CameraUpdateFactory.newLatLng(coordinate))
     }

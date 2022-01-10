@@ -31,6 +31,21 @@
             </intent-filter>
         </activity>
         <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_baseline_add_business_24" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/design_default_color_secondary" />
+        <service
+            android:name=".service.FirebaseNotificationService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDWeGosKyKLP6uOw7jTAhricYu9qy15JME" />
         <meta-data
