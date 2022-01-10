@@ -27,4 +27,6 @@ Backend Database: https://github.com/SooryaSRajan/Business-Pal-NodeJS-Backend (B
 
 Screenshots: https://drive.google.com/drive/folders/1DyAoe0IbYWcoLKn9SGQLZhxf1wOeMZuo?usp=sharing
 
+The appliation is currently in beta stage and only support basic features like writing and reading data. The app can be expanded to allow modification and deletion of records through Account Authentication. We also aim to add an option to filter and search between business categories and also provide information of business vendors close to the user's current location if required. Another goal for the project is to allow people to make purchases, place orders and make payments directly through the app rather that having to contact the seller or visit the province directly.
+
 
