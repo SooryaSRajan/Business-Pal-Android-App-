@@ -41,9 +41,9 @@ class DisplayDataFragment : Fragment() {
         val data: BusinessDataModel =
             requireActivity().intent.getSerializableExtra("DATA") as BusinessDataModel
 
-        businessName.text = data.BusinessName
-        Caption.text = "\"${data.BusinessCaption}\""
-        description.text = data.BusinessDescription
+        businessName.text = data.BusinessName.trim()
+        Caption.text = "\"${data.BusinessCaption.trim()}\""
+        description.text = data.BusinessDescription.trim()
         emailId.text = data.EmailID
 
         emailId.setOnClickListener {

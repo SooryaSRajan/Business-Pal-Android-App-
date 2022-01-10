@@ -30,9 +30,9 @@ class MainAdapter(var context: Context) : RecyclerView.Adapter<MainAdapter.MainV
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val data = mutableList[position]
-        holder.title.text = data.BusinessName
-        holder.subTitle.text = data.BusinessCaption
-        holder.createdTime.text = data.CreatedTime
+        holder.title.text = data.BusinessName.trim()
+        holder.subTitle.text = data.BusinessCaption.trim()
+        holder.createdTime.text = data.CreatedTime.trim()
     }
 
     override fun getItemCount(): Int {

@@ -4,11 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.Network
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         Firebase.messaging.subscribeToTopic("business")
             .addOnCompleteListener {
+                Toast.makeText(this, "GOT", Toast.LENGTH_SHORT).show()
             }
 
 
@@ -40,6 +43,12 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         viewModel.businesssList.observe(this, {
+            if(it.isEmpty()){
+                emptyMessage.visibility = View.VISIBLE
+            }
+            else{
+                emptyMessage.visibility = View.GONE
+            }
             adapter.setBusinessList(it)
         })
 
