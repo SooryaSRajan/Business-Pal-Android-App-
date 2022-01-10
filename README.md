@@ -9,9 +9,7 @@ Small scale business vendors always struggle to get their business up as they ar
 <b> Proposed Solution : </b>
 
 This project proposes a simple full stack app "Business Pal" to help small business vendors advertise and promote their business. The app allows any user to add information about their business, an email to let anyone contact them and the  app also allows them to attach their business location through GPS to people can go visit the province. The app also allows users to open the location in an inbuilt Map to quickly view the location, and also allows them to open it in google maps for extended features. The project's scope is to add more security, allow modifications in the future, add filter for business types and add option to view local business.
-
-<img width="559" alt="sampleimages" src="https://user-images.githubusercontent.com/18289261/142846646-a6858641-ad88-43aa-b8bb-b690fd7126f1.png">
-              
+  
 <b> Functionality & Concepts used : </b>
 
 - The app uses a simple yet intuitive easy to use interface, using Android and Material components for the User Interface. The components used in the app is attached below: 
