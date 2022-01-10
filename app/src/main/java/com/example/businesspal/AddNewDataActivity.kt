@@ -57,6 +57,12 @@ class AddNewDataActivity : AppCompatActivity() {
                         gpsLocationListener
                     )
                 } else {
+                    Toast.makeText(
+                        this,
+                        "Please turn on GPS",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
                     progressBar.visibility = View.INVISIBLE
                 }
             } else {
